@@ -1,4 +1,6 @@
 import React from "react";
+import popularDestinations from "./data/popularDestinations";
+import DestinationCard from "./components/DestinationCard";
 
 function App() {
   return (
@@ -12,9 +14,9 @@ function App() {
             <img className="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden"
               src="https://media.istockphoto.com/photos/man-reading-email-on-laptop-while-relaxing-on-beach-picture-id1049721644?k=20&m=1049721644&s=612x612&w=0&h=8UsosygUoFfnLalIWeRO8N_H4EU_SMF-KLHJXaXNFtE="
               alt="Woman Workactioning on the beach" />
-            <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">You can
+            <h1 className="mt-6 text-2xl font-headline tracking-light font-semibold text-gray-900 sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">You can
               work from
-              anywhere. <br className="hidden lg:inline" /><span className="text-indigo-500">Take
+              anywhere. <br className="hidden lg:inline" /><span className="text-brand">Take
                 advantage of
                 it.</span></h1>
             <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">Workaction helps you find work-friendly rentals in
@@ -26,7 +28,7 @@ function App() {
               you're not on vacation.</p>
             <div className="mt-4 space-x-1 sm:mt-6">
               <a className="btn btn-primary" href="#">Book your escape</a>
-              <a className="btn btn-secondary" href="#">Learn more</a>
+              {/* <a className="btn btn-secondary" href="#">Learn more</a> */ }
             </div>
           </div>
         </div>
@@ -40,6 +42,13 @@ function App() {
 
       <div className="max-w-md sm:max-w-xl lg:max-w-6xl mx-auto px-8 lg:px-12 py-8">
         <h2 className="text-xl text-gray-900">Popular Destinations</h2>
+        <p className="mt-2 text-gray-600">A Selection of great work-friendly cities with lots to see and explore</p>
+        <div className="mt-6 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+          { popularDestinations.map((destination, index) => (
+            <DestinationCard destination={ destination } key={ index } />
+          )) }
+
+        </div>
       </div>
     </div>
   );
